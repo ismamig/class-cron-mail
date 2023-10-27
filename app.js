@@ -1,15 +1,13 @@
 const express = require('express');
-const cronMailer = require("./agent");
+const cronJob = require('./cron');
 
-// Démarrage de l'agent
-cronMailer();
+cronJob();
 
-// Démarrage de l'appli express
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-    res.send("Agent en cours d'execution");
+    res.send('Agent en cours dexecution');
 });
 
 app.listen(port, () => {
